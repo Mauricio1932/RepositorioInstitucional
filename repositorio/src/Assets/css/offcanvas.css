@@ -4,9 +4,9 @@ body {
     /* Prevent scroll on narrow devices */
 }
 
-body {
-    padding-top: 56px;
-}
+/* body {
+    padding-top: 75px;
+}  */
 
 @media (max-width: 991.98px) {
     .offcanvas-collapse {
@@ -75,39 +75,30 @@ body {
 }
 
 
-
-/* Scroll de contenido */
-
+/* Scroller ede cafa caja de contenido */
+/*box-style en esta parte controla el scrolñ*/
 .box-style {
     height: 200px;
     overflow: hidden scroll;
 }
 
-/*box-style en esta parte controla el scrollbar*/
 .box-style::-webkit-scrollbar {
     width: 5px;
 }
 
 .box-style::-webkit-scrollbar-thumb {
     /* background: #212529; */
-    background-color: #6f42c1;
+    background: #6f42c1;
     border-radius: 10px;
 
 }
 
-/* body::-webkit-scrollbar {
-    width: 8px;
-}
 
-body::-webkit-scrollbar-thumb {
-    background: #6F42C1;
-    border-radius: 10px;
-} */
-
-/* Portada */
+/* Portada imagen debajo del navbar*/
 .container-cover {
     width: 100%;
     height: 500px;
+    margin-top: 75px;
     position: relative;
     background-image: url(../images/up500px.jpg);
     background-position: center;
@@ -127,11 +118,11 @@ body::-webkit-scrollbar-thumb {
     left: 0;
 }
 
+/* informacion del centro en la imagen  */
 .container-cover-info {
     max-width: 800px;
     height: 500px;
     margin: auto;
-
     text-align: center;
     display: flex;
     justify-content: end;
@@ -150,9 +141,7 @@ body::-webkit-scrollbar-thumb {
     padding-bottom: 40px;
 }
 
-/*-------------------------------------- */
-
-
+/*------------Titulo en Navbar--------------- */
 .header {
     /* background: rgba(0, 0, 0, 0.9); */
     padding: 6px 10px;
@@ -165,20 +154,22 @@ body::-webkit-scrollbar-thumb {
     text-transform: uppercase;
 }
 
-.menu{
-    margin-left: 20px;
-    margin-right: 20px;
+/* Buscador del navBar  */
+.menu {
+
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.boton{
+.boton {
     padding-left: 10px;
     padding-right: 10px;
 }
 
 
-/* foooter */
+/* footer */
 
-.single-footer-img{
+.single-footer-img {
     max-width: 100%;
     max-width: 100%;
     margin: 60px auto;
@@ -187,42 +178,205 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
 }
 
-.text-color{
+.text-color {
     color: white;
 }
 
-.single-footer-info{
+.single-footer-info {
     max-width: 100%;
     max-width: 100%;
     margin: 60px auto;
     display: block;
     justify-content: center;
     align-items: center;
-
 }
 
 
-li{
+li {
     list-style: none;
 }
 
-.footer-social li a{
-    top:0;
-    width: 70px;
-    height: 30px;
-    display: block;
-    float: left;
-    justify-content: center;
-    align-items: center;
+.fa-brands {
+    font-size: 25px;
 }
 
-.footer-social li a i{
-    color:#fff;
-    font-size: 30px;
-}
-
-.align{
+.align {
     text-align: center;
     justify-content: center;
     align-items: center;
 }
+
+
+/* backgroun de la barra izquierda */
+.back2 {
+    background: #ededed;
+    padding: 15px;
+    height: 450px;
+}
+
+/* backgroun de la barra derecha */
+.back4 {
+    background: #ededee;
+    height: 450px;
+}
+
+
+/* scroll la vista de los pdf */
+.scroll {
+    height: 450px;
+    overflow: hidden scroll;
+
+}
+
+.scroll::-webkit-scrollbar {
+    width: 5px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 10px;
+}
+
+.padding {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/*etiqueta de tipo de documento del pdf*/
+.etiqueta {
+    background-color: #6F42C1;
+    color: white;
+    position: absolute;
+    top: 15px;
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 5px;
+
+}
+
+/* texto de informacion del pdf */
+.espacio p {
+    margin-bottom: 0px;
+    padding: 0;
+}
+
+/*iconos */
+.icons a {
+    margin-right: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    color: #6F42C1;
+}
+
+/*Buscador de las caja en el compontente leftBar*/
+.line-none-text {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.line-none-button {
+    border: none;
+    outline: none;
+    width: 20%;
+    font-size: 30px;
+    color: #6C757D;
+}
+
+.border-bajo {
+    border-bottom: 1px solid #6C757D;
+}
+
+/* espaciado  */
+.search {
+    margin-left: 2px;
+}
+
+/* tamaño del cuadro de busqueda  */
+.box-content {
+    width: 90%;
+}
+
+/* tamaño de caja para ocultar todo el contenido */
+.box-pdf {
+    height: 70px;
+    width: 100%;
+    overflow: hidden scroll;
+}
+
+/* scrollbar del contenid de las cajas de leftbar*/
+.box-pdf::-webkit-scrollbar {
+    width: 5px;
+}
+
+.box-pdf::-webkit-scrollbar-thumb {
+    background-color: #6F42C1;
+    border-radius: 10px;
+}
+
+.colorWhite {
+    color: white;
+}
+
+.content-header {
+    width: 100%;
+}
+
+
+
+.box-visor {
+    background-color: #6C757D;
+    margin: auto;
+    width: 100%;
+    height: 792px;
+    overflow: hidden scroll;
+    overflow-x: hidden scroll;
+}
+.box-visor::-webkit-scrollbar {
+    width: 5px;
+}
+.box-visor::-webkit-scrollbar-thumb {
+    /* background: #212529; */
+    background: #6f42c1;
+    border-radius: 10px;
+}
+
+.size-pages {
+    padding-bottom: 25px;
+}
+.size-paginas{
+    margin-top:80px;
+}
+
+/* estilo de login */
+
+
+#standard-basic::placeholder {
+    color: rgb(0, 0, 0);
+}
+
+
+#name-helper ,
+#first-name-helper ,
+#lastname-helper,
+#email-helper ,
+#color {
+    color: black;
+}
+
+.login,
+.image {
+    min-height: 100vh;
+}
+.bg-image {
+    background-image: url('../images/up500px.jpg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.color {
+    color: red;
+}
+
+
+  
