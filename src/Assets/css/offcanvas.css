@@ -324,26 +324,25 @@ li {
 
 
 
-
-.ventana {
-    width: 600px;
-    height: 700px;
-    overflow: hidden;
-}
-
 .box-visor {
-    background-color: red;
+    background-color: #6C757D;
     margin: auto;
     width: 100%;
     height: 792px;
     overflow: hidden scroll;
-    overflow-x: scroll;
+    overflow-x: hidden scroll;
+}
+.box-visor::-webkit-scrollbar {
+    width: 5px;
+}
+.box-visor::-webkit-scrollbar-thumb {
+    /* background: #212529; */
+    background: #6f42c1;
+    border-radius: 10px;
 }
 
-
-
 .size-pages {
-    margin-top: 25px;
+    padding-bottom: 25px;
 }
 .size-paginas{
     margin-top:80px;
@@ -355,24 +354,15 @@ li {
 #standard-basic::placeholder {
     color: rgb(0, 0, 0);
 }
+
+
+#name-helper ,
+#first-name-helper ,
+#lastname-helper,
 #email-helper ,
 #color {
     color: black;
 }
-
-
-#name-helper {
-    color: black;
-}
-
-#lastname-helper {
-    color: black;
-}
-
-#first-name-helper {
-    color: rgb(0, 0, 0);
-}
-
 
 .login,
 .image {
@@ -389,10 +379,4 @@ li {
 }
 
 
-/* //drag && drop */
-#drop_zone {
-    border: 5px solid blue;
-    width:  200px;
-    height: 100px;
-  }
   

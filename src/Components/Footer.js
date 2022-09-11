@@ -12,7 +12,7 @@ function Footer() {
                         <div className="row">
                             <div className="col-md-4 col-sm-6">
                                 <div className="single-footer-img">
-                                    <img src={imgLogo} alt="logo"></img>
+                                    <img src={imgLogo} width="130px" alt="logo"></img>
                                 </div>
                             </div>
                             <div className="col-md-4 col-sm-6">

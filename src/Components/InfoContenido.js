@@ -1,5 +1,5 @@
 import React from 'react'
-import imglogoUpChiapas from '.././Assets/images/logoUPChiapas.png';
+import imglogoUpChiapas from '.././Assets/images/logoUPChiapas3.png';
 
 
 let date = new Date();

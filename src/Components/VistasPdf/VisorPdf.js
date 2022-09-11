@@ -36,12 +36,12 @@ function VisorPdf() {
     function changePage(offSet) {
         setPageNumber(prevPageNumber => prevPageNumber + offSet)
     }
-    function changePageBack() {
-        changePage(-1)
-    }
-    function changePageNext() {
-        changePage(+1)
-    }
+    // function changePageBack() {
+    //     changePage(-1)
+    // }
+    // function changePageNext() {
+    //     changePage(+1)
+    // }
 
     return (
         <>
@@ -74,23 +74,24 @@ function VisorPdf() {
                     </iv>
               */}
 
-            <div className="d-flex justify-content-center">
-                    <div className="card d-flex justify-content-center my-2" >
-                        <div className="card box-visor">
-                            <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} >
-                                {Array.from(
-                                    new Array(numPages),
-                                    (el, index) => (
-                                        <Page key={`page_${index + 1}`} className='size-pages' pageNumber={index + 1} />
-                                    )
-                                )}
-                            </Document>
-                        </div>
+            <div class="d-flex justify-content-center size-pagina">
+                <div class="card d-flex justify-content-center my-2" >
+                    <div class="box-visor">
+                        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} className='' >
+                            {Array.from(
+                                new Array(numPages),
+                                (el, index) => (
+                                    <Page key={`page_${index + 1}`} className='size-pages' pageNumber={index + 1} />
+                                )
+                            )}
+                        </Document>
                     </div>
+                </div>
                 {/* <div className='bg-dark ventana my-2'>
 
                 </div> */}
             </div>
+        
         </>
     );
 }

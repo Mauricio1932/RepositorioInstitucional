@@ -5,7 +5,7 @@ import Columna from '../Contenido/Columna';
 import { Routes, Route, Outlet, useLocation } from 'react-router-dom'
 
 function Administrador() {
-
+    
     const [activate, setActivate] = useState(true);
     const { contenidoRepo } = data;
     const location = useLocation();
@@ -14,11 +14,13 @@ function Administrador() {
         let text = location.pathname;
         const myArray = text.split("/");
 
+
         if (myArray.length === 2 || myArray[2] === "") {
             setActivate(true);
         } else {
             setActivate(false);
         }
+        
     }
 
 

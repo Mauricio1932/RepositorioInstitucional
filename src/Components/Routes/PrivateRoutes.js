@@ -16,25 +16,32 @@ function PrivateRoutes() {
     const navigate = useNavigate();
 
     const getInfo = async () => {
-        let response = await fetch(`http://localhost:8000/api/v1/userInfo/1`, {
-            method: 'GET',
+        let response = await fetch('http://localhost:3000/api/users/login', {
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: 'Bearer ' + localStorage.getItem('token')
+                //'Access-Control-Allow-Origin': '*'
             },
-
         })
 
+        let data = await response.json()
+
+        console.log(data);
+    
+        
         if (response.status === 401) {
-            navigate("/login")
-            localStorage.clear();
+            // setUser(data)
+            
+            localStorage.clear()
         } else {
             //alert('algo salió mal')
-            //setError("Usuario o contraseña, icorrectos")
+            // setError("Usuario o contraseña, icorrectos")
             // setTimeout(() => {
-            //   setError("")
+            //     setError("")
             // }, 5000);
         }
+
     }
 
 
