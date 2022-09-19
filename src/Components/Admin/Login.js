@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import axios from "axios";
 
 function Login() {
@@ -9,8 +9,6 @@ function Login() {
 
     const [formData, setFormData] = useState({})
 
-    const [tokens, setTokens] = useState("");
-    const [user, setUser] = useState("");
     const [pass, setPass] = useState(false)
     const [error, setError] = useState("")
     const [redirect, setRedirect] = useState(false);
@@ -30,7 +28,7 @@ function Login() {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': '*'
             },
-            body: JSON.stringify({ 
+            body: JSON.stringify({
                 'email': formData.username,
                 'Password': formData.password
             }),
@@ -39,7 +37,7 @@ function Login() {
         let data = await response.json()
 
         console.log(data.data.token);
-    
+
 
         if (response.status === 200) {
             // setUser(data)
@@ -65,7 +63,7 @@ function Login() {
 
     return (
         <>
-            {localStorage.getItem('token') || redirect?
+            {localStorage.getItem('token') || redirect ?
                 <Navigate to='/admin/contenido' />
                 :
                 <div className="maincontainer">

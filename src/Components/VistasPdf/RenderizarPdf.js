@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Tarjeta from './Tarjeta';
 import { useParams } from 'react-router-dom'
 
-function RenderizarPdf({ pdf, location }) {
+function RenderizarPdf({ pdf, location,setArchivo }) {
 
     const [pdfEncontrado, setPdfEncontrado] = useState([]);
     const [presentar, setPresentar] = useState(true);
@@ -32,7 +32,7 @@ function RenderizarPdf({ pdf, location }) {
                 <div className="row row-cols-1 row-cols-md-3 g-4 row ">
                     {presentar === true ?
                         pdf.map((archivo, index) => (   
-                            <Tarjeta key={index} pdfData={archivo} />
+                            <Tarjeta key={index} pdfData={archivo} setArchivo={setArchivo}/>
                         ))
                         :
                         <Tarjeta pdfData={pdfEncontrado}></Tarjeta>

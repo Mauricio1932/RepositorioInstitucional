@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import NavBar from '../NavBar';
 import Portada from '../Portada';
 import ScrollBar from '../ScrollBar';
@@ -13,6 +13,9 @@ import VisorPdf from '../VistasPdf/VisorPdf';
 
 import { Routes, Route } from 'react-router-dom'
 function PublicRoutes() {
+
+    const [archivo, setArchivo] = useState();
+    
     //arreglo de las columnas
     const { contenido} = data;
     return (
@@ -23,7 +26,7 @@ function PublicRoutes() {
                 <NavBar />
                 <br />
                 <div className='size-paginas'>
-                    <VisorPdf />
+                    <VisorPdf archivo={archivo}/>
                 </div>
                 <br />
                 <Footer />
@@ -38,7 +41,7 @@ function PublicRoutes() {
                     </div>
                     <div className='container'>
                         <InfoContenido />
-                        <VistaPdf />
+                        <VistaPdf setArchivo={setArchivo}/>
                     </div>
                     <Footer />
                 </div>}

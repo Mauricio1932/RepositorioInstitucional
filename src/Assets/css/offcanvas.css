@@ -261,11 +261,13 @@ li {
 }
 
 /*iconos */
-.icons a {
-    margin-right: 10px;
-    margin-left: 10px;
-    font-size: 20px;
+.icons{
     color: #6F42C1;
+}
+
+.icons a{
+    padding: 0 10px 10px 10px;
+    font-size: 20px;
 }
 
 /*Buscador de las caja en el compontente leftBar*/

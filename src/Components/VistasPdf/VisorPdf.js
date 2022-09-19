@@ -3,27 +3,13 @@ import axios from "axios";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import PDFViewer from 'pdf-viewer-reactjs'
 import pdf from '../../Assets/pdf/tarea.pdf'
-function VisorPdf() {
+
+function VisorPdf({archivo}) {
+    console.log(archivo)
     const accessToken = '12f5ddf1b98ff23aa937bfee5f202925d8197ab1';
     const [imagens, setimages] = useState(pdf);
 
-    const getImgUser = async () => {
-        let response = await fetch('http://localhost:8000/api/v1/libros/libros/2', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Token ${accessToken}`
-            },
-
-        })
-
-        const data = await response.json();
-        setimages(data.pay_load.url_pdf)
-    }
-
-    useEffect(() => {
-        getImgUser()
-    }, [1]);
+   
 
     const [numPages, setNumPages] = useState(null);
     const [pageNumber, setPageNumber] = useState(1);
@@ -45,39 +31,12 @@ function VisorPdf() {
 
     return (
         <>
-            {/* <div className='App' style={{ width: '100 % ', height: '100% ' }}>
-                <Document file={imagens}>
-                    <Page pageNumber={1} />
-                </Document>
-            </div>  /} */}
-
-            {/* <Document   file={pdf} onLoadSuccess={onDocumentLoadSuccess} style={{ position: 'absolute', width: '100 % ', height: '100% ' }}>
-
-                <Page 
-                 pageNumber={1} 
-                    type="application/pdf"
-                    width="100%"
-                    height="100%" ></Page>
-            </Document > */}
-
-
-            {/* <iv className='bg-warning'>
-                    <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} className='bg-primary tsize' >
-                    {Array.from(
-                        new Array(numPages),
-                        (el, index) => (
-                            <Page key={`page_${index + 1}`} className=' bg-danger tsize2' pageNumber={index + 1} />
-                        )
-                    )}
-                </Document>
-                    <h1>hdkslnñgsndglknsdlkgsalkmclasmclamsasfascsacascascascvsbbbbb</h1>
-                    </iv>
-              */}
+            
 
             <div class="d-flex justify-content-center size-pagina">
-                <div class="card d-flex justify-content-center my-2" >
+                <div class=" d-flex justify-content-center my-2" >
                     <div class="box-visor">
-                        <Document file={pdf} onLoadSuccess={onDocumentLoadSuccess} className='' >
+                        <Document file={`http://localhost:3000/api/contenido/view_pdf?pdf=${archivo}`} onLoadSuccess={onDocumentLoadSuccess} className='' >
                             {Array.from(
                                 new Array(numPages),
                                 (el, index) => (

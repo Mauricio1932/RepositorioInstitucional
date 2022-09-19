@@ -14,7 +14,7 @@ function NavBar() {
     let text = location.pathname;
     const myArray = text.split("/");
     const navigate = useNavigate();
-    
+
     const logout = () =>{
         localStorage.clear()
         navigate('login')
@@ -46,10 +46,11 @@ function NavBar() {
                         Repositorio Institucional de la Universidad Politécnica de Chiapas
                     </div>
                     <div className="p-2 flex-fill bd-highlight align-self-center  ">
-                        {activate ? undefined :
+                        
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon d-flex justify-content-evenly"></span>
-                            </button>}
+                            </button>
+                           
                     </div>
                 </div>
 
@@ -61,7 +62,7 @@ function NavBar() {
                         </form> :
                         <>
                             <h5 className="colorWhite">Ingeniería {userProfile.sub}</h5>
-                                <button type="button" class="btn btn-outline-light" onClick={()=>logout()}>Logout</button>
+                                <button type="button" className="btn btn-outline-light" onClick={()=>logout()}>Logout</button>
                         </>
                     }
                 </div>

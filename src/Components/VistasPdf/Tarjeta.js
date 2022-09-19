@@ -1,7 +1,16 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
-function Tarjeta({ pdfData }) {
 
+
+function Tarjeta({ pdfData, setArchivo }) {
+  
+  const navigate = useNavigate();
+
+  const verPdf = (documento) =>{
+    navigate('../pdf')
+    setArchivo(documento)
+  }
   console.log(pdfData)
 
   return (
@@ -17,8 +26,8 @@ function Tarjeta({ pdfData }) {
           </div>
           <div class="card-footer">
             <div className='d-flex justify-content-center icons'>
-              <a href="/pdf" ><i className="fa-solid fa-book-open"></i></a>
-              <a href="" ><i className="fa-solid fa-share-from-square"></i></a>
+              <a><i onClick={()=>verPdf(pdfData.enlaceDocumento)} className="fa-solid fa-book-open"></i></a>
+              <a ><i className="fa-solid fa-share-from-square"></i></a>
             </div>
           </div>
         </div>

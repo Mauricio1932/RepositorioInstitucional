@@ -6,12 +6,12 @@ import LeftBar from './LeftBar';
 import { useParams, useLocation } from 'react-router-dom';
 
 //recibe el requeste
-function VistaPdf() {
+function VistaPdf({setArchivo}) {
 
     const [pdf, setPdf] = useState([])
 
     const getTesis = async () => {
-        let response = await fetch(`http://localhost:3000/api/contenido/view`, {
+        let response = await fetch('http://localhost:3000/api/contenido/view', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ function VistaPdf() {
                         <LeftBar />
                     </div>
                     <div className="col-md-8 back4 scroll">
-                        <RenderizarPdf pdf={pdf} location={location.pathname} />
+                        <RenderizarPdf pdf={pdf} location={location.pathname} setArchivo={setArchivo}/>
                     </div>
                 </div>
             </div>

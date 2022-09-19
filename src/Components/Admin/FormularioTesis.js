@@ -4,64 +4,39 @@ const url = 'http://localhost:3000/api/users/login';
 
 // realizar el metodo put de envio de formulario y guardar el formulario
 
-
-
 function FormularioTesis() {
 
     const [form, setForm] = useState({});
     const [archivo, setArchivo] = useState(null)
 
-    const fetchData = async () => {
-        var axios = require('axios');
-        let response = await fetch(`http://localhost:3000/api/contenido/create_contenido`,{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                // Authorization: 'Bearer ' + localStorage.getItem('token')
-            },
-            body: JSON.stringify({
-                "titulo": form.tesis,
-                "autor": form.primerAutor,
-                "fecha": form.fecha,
-                "segundoAutor": form.segundoAutor,
-                "enlaceDocumento": archivo,
-            }),
-        })
+    const fetchData = () => {
+		const formData = new FormData();
         
-        if (response.status === 200) {
-            // setUser(data)
-            alert("Tesis agregado");
-            //setRedirect(true);
-            //localStorage.setItem('token', data.data.token);
-        } else {
-            //alert('algo salió mal')
-            // setError("Usuario o contraseña, icorrectos")
-            // setTimeout(() => {
-            //     setError("")
-            // }, 5000);
-        }
+		formData.append( "titulo", form.tesis);
+		formData.append( "autor", form.primerAutor);
+		formData.append( "fecha", form.fecha);
+		formData.append( "segundoAutor", form.segundoAutor);
 
-    }
+		formData.append('enlaceDocumento', archivo);
 
-    const fileType=['application/pdf']
+		fetch(
+			'http://localhost:3000/api/contenido/create_contenido',
+			{
+				method: 'POST',
+				body: formData,
+			}
+		)
+			.then((response) => response.json())
+			.then((result) => {
+				console.log('Success:', result);
+			})
+			.catch((error) => {
+				console.error('Error:', error);
+			});
+	};
+
     const subirArchivo = e => {
-        //formData = new formData();
-        const file = e.target.files[0];
-
-        if(file){
-            if(file && fileType.includes(file.type)){
-                let reader = new FileReader();
-                    reader.readAsDataURL(file);
-                    reader.onload = () =>{
-                        setArchivo(e.target.value)
-                    }
-            }else{
-                setArchivo(null)
-            }
-        }else{
-            console.log("select you file")
-        }
-        
+        setArchivo(e.target.files[0]);   
     }
 
     const handleChange = e => {
@@ -108,8 +83,8 @@ function FormularioTesis() {
                                     </div>
                                 </form>
                                 <div>
-                                    <div class="mb-3">
-                                        <label for="formFileSm" className="form-label btn btn-primary">Selecciona archivo</label>
+                                    <div className="mb-3">
+                                        <label htmlFor="formFileSm" className="form-label btn btn-primary">Selecciona archivo</label>
                                         <input className="form-control form-control-sm" id="formFileSm" type="file" onChange={subirArchivo} />
                                     </div>
                                     <div className="justify-content-start my-2">
